@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <link rel="stylesheet" href="./public/css/h5.css">
+    <script src="./public/js/jquery-1.11.3.min.js"></script>
+    <!--[if lt IE 9]>
+　  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+ 　 <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- IE8 以下版本解决方案 -->
+    <!-- 第一种方式，手动创建标签 -->
+    <!-- <script>
+        /*手动创建标签 默认的标签类型都是行级元素*/ 
+        document.cleatElement('header');
+    </script> -->
+    <!-- 第二种方式，引入第三方插件 -->
+    <!-- html5shiv.min.js 在默认情况下不支持h5，引入该js就可以兼容IE8以下版本 -->
+    <script src="./public/js/html5shiv.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>头部</h1>
+    </header>
+    <nav>
+        nav导航
+    </nav>
+    
+    <main>
+        <article>
+            <section>
+                <form action="">
+                    <p>用户名：text</p>
+                    <p><input type="text" name="username"></p>
+                    <p>密码：password</p>
+                    <p><input type="password" name="password"></p>
+                    <!-- email 提供了默认的电子邮件的完整验证，要求必须包含@符号，同时必须包含服务器名称，如果不能满足验证，则会阻止当前的数据提交 -->
+                    <p>邮箱：email</p>
+                    <p><input type="email" name="email"></p>
+                    <!-- tel它并不是来实现验证，它的本质目的是为了能够在移动端打开数字键盘，
+                        意味着数字键盘限制了用户只能输入数字，如何查看效果：qq发送文件>>手机端使用qq来接收>>使用手机浏览器-->
+                    <p>手机号码：tel 在手机端打开数字键盘，意味着数字键盘限制了用户只能输入数字</p>
+                    <p><input type="tel"></p>
+                    <!-- url 验证只能输入合法的网址：必须包含http://文件传输协议 -->
+                    <p>网址地址：url 备注：url只能输入合法的网站</p>
+                    <p><input type="url"></p>
+                    <!-- number (购物数量)  只能输入数字(包含小数点)，不能输入其它字符
+                    max:最大值
+                    min:最小值
+                    value:默认值-->
+                    <p>购物数量: number</p>
+                    <p><input type="number" vlaue="60" max="100" min="0"></p>
+                    <!-- search:可以提供更人性的输入体验 -->
+                    <p>请输入商品名称：search</p>
+                    <p><input type="search"></p>
+                    <!-- range 也有最大值，最小值，默认值 -->
+                    <p>范围：range</p>
+                    <p><input type="range" max="100" min="0" value="50"></p>
+                    <!-- color 颜色 -->
+                    <p>颜色：color</p>
+                    <p><input type="color"></p>
+                    <!-- time 时间 时分秒-->
+                    <p>时间：time</p>
+                    <p><input type="time"></p>
+                    <!-- date 日期 年月日-->
+                    <p>日期：date</p>
+                    <p><input type="date"></p>
+                    <!-- datetime 日期时间：大多数浏览器 不能支持datatime,只能苹果下面的safari支持-->
+                    <p>日期和时间：datatime 大多数浏览器 不能支持datatime,只能苹果下面的safari支持</p>
+                    <p><input type="datatime"></p>
+                    <!-- datatime-local -->
+                    <p>日期时间：datetime-local</p>
+                    <p><input type="datetime-local"></p>
+                    <!-- 月份 -->
+                    <p>月份：mouth</p>
+                    <p><input type="mouth"></p>
+                    <!-- 星期 -->
+                    <p>星期：week</p>
+                    <p><input type="week"></p>
+                    <!-- 提交 -->
+                    <p>提交：submit 备注：button类是提交不了表单的</p>
+                    <p><input type="submit"></p>
+                </form>
+            </section>
+            <hr>
+        </article>
+        <aside>right</aside>
+    </main>
+    <footer>
+        <footer>footer</footer>
+    </footer>
+</body>
+</html>

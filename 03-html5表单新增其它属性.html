@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <link rel="stylesheet" href="./public/css/h5.css">
+    <script src="./public/js/jquery-1.11.3.min.js"></script>
+    <!--[if lt IE 9]>
+　  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+ 　 <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- IE8 以下版本解决方案 -->
+    <!-- 第一种方式，手动创建标签 -->
+    <!-- <script>
+        /*手动创建标签 默认的标签类型都是行级元素*/ 
+        document.cleatElement('header');
+    </script> -->
+    <!-- 第二种方式，引入第三方插件 -->
+    <!-- html5shiv.min.js 在默认情况下不支持h5，引入该js就可以兼容IE8以下版本 -->
+    <script src="./public/js/html5shiv.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>头部</h1>
+    </header>
+    <nav>
+        nav导航
+    </nav>
+    
+    <main>
+        <article>
+            <hr>
+            <section>
+                <form action="" id="myform">
+                    <!-- placehoder 提交文本，提示点位 -->
+                    <p>用户名：placeholder 占位符，单击输入光标自动在前面输入框闪烁</p>
+                    <p><input type="text" name="username" placeholder="username"></p>
+                    <!-- autofocus -->
+                    <p>用户名：autofocus 刷新自动获取焦点</p>
+                    <p><input type="text" placeholder="username" autofocus></p>
+                    <!-- autocomplete 自动完成：on：打开 off:关闭 
+                    1.必须成功提交过;提交过过会记录下来
+                    2.当前添加autocomplete的元素必须有name属性-->
+                    <p>用户名：autocomplete  自动完成：on：打开 off:关闭</p>
+                    <p>
+                        <h2>autocomplete 有两个前提</h2>
+                        <h3>1.必须成功提交过：提交过才会记录下来;2.当前添加autocomplete的元素必须有name属性</h3>
+                    </p>
+                    <p><input type="text" name="username" placeholder="username" autofocus autocomplete="on"></p>
+                    <!-- tel 并不会实现验证，仅仅是在移动端能够弹出数字键盘 -->
+                    <!-- required:必须输入，如果没有输入则会阻止当前数据提交 -->
+                    <!-- pattern：正则表达式验证 
+                    *：代表任意个
+                    ?: 代表0个或1个
+                    +: 代表一个或多个-->
+                    <p>
+                        手机号：tel 并不会实现验证，仅仅是在移动端能够弹出数字键盘
+                        <h2>属性：required: 必须输入，如果没有输入则会阻止当前数据提交</h2>
+                        <h2>属性：pattern: 正则表达式验证</h2>
+                    </p>
+                    <p><input type="tel" name="userphone" required pattern="^(\+86)?1\d{10}$"></p>
+                    <h1>multiple两个功能</h1>
+                    <!-- file 文件 multiple 可选择多个文件-->
+                    <p>文件：file 属性：multiple 选择多个文件</p>
+                    <p><input type="file" name="file" multiple></p>
+                    <!-- email 邮箱验证 multiple允许输入多个邮箱地址，以逗号隔开 -->
+                    <p>邮箱：email multiple允许输入多个邮箱地址，以逗号隔开</p>
+                    <p><input type="email" name="email" autocomplete="on" multiple></p>
+                    <!-- 提交 -->
+                    <p>提交：submit 备注：button类是提交不了表单的</p>
+                    <p><input type="submit"></p>
+                </form>
+                <hr>
+                <!-- 下面这个表单元素并没有包含在form中：默认情况下面表单元素的数据不会进行提交 -->
+                <!-- form:指定id,那么在将来指定id号的表单进行数据提交的时候，也会将当前表单元素的数据一起提交 -->
+                <h1>form:指定id,那么在将来指定id号的表单进行数据提交的时候，也会将当前表单元素的数据一起提交</h1>
+                地址：<input type="text" name="address" form="myform">
+            </section>
+        </article>
+        <aside>right</aside>
+    </main>
+    <footer>
+        <footer>footer</footer>
+    </footer>
+</body>
+</html>

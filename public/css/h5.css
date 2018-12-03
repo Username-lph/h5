@@ -1,0 +1,70 @@
+*{
+    font-family:'微软雅黑';
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+    -moz-border-sizing:border-box;
+    -webkit-box-sizing: border-box;
+}
+ul,li{
+    list-style-type:none;
+}
+a{
+    text-decoration:none;
+}
+
+header{
+    width:1200px;
+    height:88px;
+    margin:0 auto;
+    border-bottom:1px solid #ccc;
+}
+nav{
+    width:1200px;
+    height:39px;
+    margin:0 auto;
+    background:#0f0;
+}
+/* IE9: 行 级元素在设置宽高的时候是失效的 */
+/* IE8: 完全不支持语义标签（不支持H5）：在IE8中，它不认识语义标签，所以无法解析这些标签，也就意味着所写的样式无效 */
+main{
+    width:1200px;
+    margin:0 auto;
+    display:flex;
+    display:-webkit-flex;
+    /* display:block; IE9 不支持H5，设置block */
+    color:#999;
+    font-size:16px;
+}
+/* > 子元素 */
+main > article{
+    width:80%;
+    /* background:#00f; */
+
+    padding:15px;
+    border-right:1px solid #ccc;
+}
+main > article > section > form > p{
+    margin:3px;
+}
+main > aside{
+    width:20%;
+    background:#f0f;
+}
+footer{
+    width:1200px;
+    margin:0 auto;
+    height:90px;
+    background:#f00;
+}
+/* 09学生档案样式 */
+form{
+    width:666px;
+    margin:0 auto;
+    color:#0c0c0c;
+}
+legend{
+    padding:2px;
+    margin:15px;
+    background:#0f0;
+}
