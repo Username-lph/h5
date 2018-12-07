@@ -1,0 +1,131 @@
+div[class=andorid]{
+    width:555px;
+    height:555px;
+    border:1px solid red;
+    border-radius:15px;
+    margin:15px auto;
+    background:#e9e9e9;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+}
+/* an_header */
+div[class$=header]{
+    width:260px;
+    height:125px;
+    background:rgba(23, 114, 23, 0.99);
+    /* border-top-left-radius:130px;
+    border-top-right-radius:130px; */
+    border-radius:130px 130px 0 0;
+    position:relative;
+}
+/* 转块级元素的三种方法： float display position */
+div[class$=header]::before,
+div[class$=header]::after{
+    content:"";
+    display:block;
+    position:absolute;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:white;
+    top:66px;
+}
+div[class$=header]::before{
+    left:60px;
+}
+div[class$=header]::after{
+    right:60px;
+}
+/* an_body */
+div[class$=body]{
+    width:260px;
+    height:269px;
+    background:rgba(23, 114, 23, 0.99);
+    margin-top:8px;
+    border-radius:0 0 15px 15px;
+    position:relative;
+}
+div[class$=body]:before,
+div[class$=body]:after{
+    content:"";
+    display:block;
+    position:absolute;
+    width:26px;
+    height:210px;
+    background:rgba(23, 114, 23, 0.99);
+    border-radius:8px;
+    top:50%;
+    margin-top:-105px;
+}
+div[class$=body]:before{
+    left:-36px;
+}
+div[class$=body]:after{
+    right:-36px;
+}
+/* an_footer */
+div[class$=footer]{
+    width:260px;
+    height:88px;
+    position:relative;
+}
+div[class$=footer]:before,
+div[class$=footer]:after{
+    content:"";
+    display:block;
+    position:absolute;
+    width:26px;
+    height:100%;
+    background:rgba(23, 114, 23, 0.99);
+    border-radius:8px;
+    top:-5px;
+}
+div[class$=footer]:before{
+    left:58px;
+}
+div[class$=footer]:after{
+    right:58px;
+}
+/* andorid */
+aside{
+    background:#fff !important;
+}
+.sketch{
+    padding:15px;
+    color:#000;
+}
+.sketch_header{
+    height:36px;
+    line-height: 36px;
+    background:#0f0;
+    margin-bottom:15px;
+    border-radius:8px;
+    text-align:center;
+    text-shadow:0px -1px 0px #eee , 0px -2px 0px #ddd, 0px -3px 0px #ccc;
+}
+.sketch > p{
+    text-align:justify;
+}
+.sketch > p:first-letter{
+    font-size:22px;
+    float:left;
+    color:red;
+}
+.sketch > p:first-line{
+    text-decoration:line-through;
+    text-align:justify;
+}
+.sketch > p::selection{
+    background:pink;
+    color:red;
+}
+/* box-shadow */
+.box-shadows{
+    width:200px;
+    height: 200px;
+    background:rgba(23, 114, 23, 0.99);
+    box-shadow:10px -10px 2px 3px rgba(248,3,0,0.2) inset,
+                -10px 10px 2px 3px rgba(248,3,0,0.2) inset;
+}

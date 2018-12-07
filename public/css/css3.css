@@ -1,0 +1,198 @@
+/*1. E[attr]:查找指定的拥有attr 属性的E标签
+查找拥有style属性的li标签 */
+li{
+    height:20px;
+    line-height:20px;
+}
+li[style]{
+    color:#f00;
+    text-decoration:underline;
+}
+/* 2.E[class=value] 查找拥有指定的Attr属性值 为value*/
+li[class]{
+    font-size:18px;
+}
+li[class=red]{
+    font-size:20px;
+}
+/* 3.E[class*=value] 查找拥有指定的Attr属性值包含（可以在任意位置）value*/
+li[class*=red]{
+
+}
+/* 4.E[class^=value] 查找拥有指定的Attr属性值以value开头的E标签*/
+li[class^=red]{
+
+}
+/* 5.E[class$=value] 查找拥有指定的Attr属性值以value结尾的E标签*/
+li[class$=red]{
+
+}
+
+/* 伪类选择器 */
+/* 兄弟伪类
++：获取当前元素的相邻的满足条件的元素
+~：获取当前元素的满足条件的兄弟元素*/
+.red + li{
+    /* 相邻的满足条件的元素 */
+}
+.red ~ li{
+    /* 指定类型的元素 */
+}
+/* 相对于父元素的结构伪类 */
+/* E:first-child: 查找E元素的父级元素中的第一个E元素*/
+li:first-child{
+
+}
+/* nth-child() 指定索引位置，从1开始的索引值 || 关键字 || 表达式 */
+li:nth-child(2){
+
+}
+/* 偶数个元素添加背景 even:偶数 odd：奇数 */
+li:nth-child(even){
+
+}
+li:nth-child(odd){
+
+}
+/* nth-of-type 限定类型，其它因素不影响*/
+li:nth-of-type(even){
+
+}
+li:nth-of-type(odd){
+
+}
+/* 取前面3个元素添加样式 */
+/* n：默认取值范围为0~子元素的长度 , 但是当n<=0时，选取无效
+0>>5*/
+li:nth-of-type(-n+3){
+    border:1px solid #ccc;
+}
+li:nth-last-of-type(-n+2){
+    background:#00f;
+    color:#fff;
+}
+/* 空值：没有任何的内容，连空格都没有 */
+li:empty{
+    background:pink;
+}
+/* 伪元素的使用 */
+div.box{
+    display:flex;
+    display:-webkit-flex;
+    /* border:1px solid #ccc; */
+    border-radius:15px;
+    width:666px;
+    height:222px;
+    box-sizing:border-box;
+    margin:15px auto;
+    
+}
+div[class^=before]{
+ 
+}
+div[class$=left]{
+    width:450px;
+    height:100%;
+    background-color:rgba(250,0,0,0.8);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius:15px;
+    position:relative;
+}
+/* 在IE8中不识别::，要改成:,所以写成单冒号:也可以，浏览器会自动转化成::; */
+div[class$=left]:after,
+div[class$=left]:before{
+    position:absolute;
+    content:" ";
+    display:block;
+    width:26px;
+    height:26px;
+    right:-13px;
+    border-radius:50%;
+    background:white;
+}
+div[class$=left]:before{
+     top:-13px;
+}
+div[class$=left]:after{
+    bottom:-13px;
+}
+div[class$=right]{
+    width:216px;
+    height:100%;
+    background-color:rgba(0,0,248,0.88);
+    border-top-right-radius:15px;
+    border-bottom-right-radius:15px;
+}
+/* 通过opacity设置透明度：如果设置父容器，那么容器中的所有子元素也会变透明 */
+/* 如果要做，要做定位做上去 */
+/* 文本阴影 */
+div[class$=shadow]{
+    width:666px;
+    height:200px;
+    background-color:#ccc;
+    /* text-align: center; */
+    margin:15px auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:36px;
+    color:#000;
+    letter-spacing: 10px;
+    font-weight:bolder;
+    border-radius:15px;
+    box-shadow:5px 5px 2px #000;
+}
+div[class^=a]{
+    text-shadow:-2px -2px 8px  #f00;
+}
+div[class^=b]{
+
+}
+div[class^=b] p{
+    text-shadow:0px 0px 30px #0f0;
+    text-outline:2px 2px #f00;
+    /* 所有主流浏览器都不支持text-outline */
+}
+/* 多层阴影效果 */
+div[class^=c]{
+    color:#f0f;
+    background-color:rgba(20,30,40,0.5);
+    text-shadow:0px 0px 30px #fff , 0px 0px 50px #0f0 ;
+}
+div[class^=d]{
+    text-shadow:0px 1px 0px #00f;
+}
+/* 浮雕立体效果 */
+div[class^=e]{
+    font-size:50px;
+    background-color:rgba(20,30,40,0.8);
+    color:#fff;
+    text-shadow:-1px -1px 0px #eee , -2px -2px 0px #ddd , -3px -3px 0px #ccc;
+}
+div[class^=f]{
+    font-size:50px;
+    background-color:rgba(20,30,40,0.8);
+    color:#fff;
+    text-shadow:0px -1px 0px #eee , 0px -2px 0px #ddd , 0px -3px 0px #ccc;
+}
+div[class^=g]{
+    font-size:48px;
+    /* color:#fbab04; */
+    color:transparent;
+    text-shadow:0px 0px 8px hsla(30,100%,50%,1);
+
+}
+.box1{
+    width: 666px;
+    height: 100px;
+    background:rgba(255,128,0,0.5);
+    margin:0 auto;
+    /* 分别是水平方向左上 右上 右下 左下 / 垂直方向 左上 右上 右下 左上 */
+    /* border-radius: 100px 0 0 0/20px 0 0 0; */
+    /* 分别表示对角线方向的大小 一个控制左上右下，一个控制右上左下 */
+    /* border-radius:333px 50px; */
+    /* 若为三个值的：第一个左上，第二个值为右上左下，第三个值为右下 */
+    /* 若为四个值的：逆时针方向旋转 */
+    /* 添加/用来设置当前不同方向的半径值，水平X方向，垂直y方向 */
+    border-radius:333px/50px;   
+}

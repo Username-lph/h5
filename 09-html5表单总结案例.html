@@ -17,6 +17,45 @@
             <form action="">
                 <fieldset>
                     <legend>学生档案</legend>
+                    <label for="userName">姓名：</label>
+                    <input type="text" name="userName" id="userName" placeholder="userName" autofocus>
+                    <section>
+                        <label for="userPhone">手机号码：</label>
+                        <input type="tel" name="userPhone" id="userPhone" required pattern="^(\+86)?1\d{10}$">
+                    </section>
+                    <label for="userEmail">邮箱地址：</label>
+                    <input type="email" name="userEmail" id="userEmail" autocomplete="on">
+                    <!-- 所属学院： 要完成既可以输入也可以选择-->
+                    <section>
+                        <label for="collage">所属学院：</label>
+                        <input type="text" name="collage" id="collage" list="cList" placeholder="请选择">
+                        <!-- datalist 和 input 关联,input的list属性值为datalist的id类名一起关联,这样就可以联动下拉菜单 -->
+                        <datalist id="cList">
+                            <option value="前端与移动开发学院">前端与移动开发学院</option>
+                            <option value="大数据学院">大数据学院</option>
+                            <option value="数据库学院">数据库学院</option>
+                            <option value="java学院">java学院</option>
+                            <option value="C++学院">C++学院</option>
+                        </datalist>
+                    </section>
+                    
+                    <!-- 入学成绩 -->
+                    <section>
+                        <label for="inscore">入学成绩: </label>
+                        <input type="number" name="score" id="inscore"　max="100" min="0" value="0">
+                        <label for="baselevel">基础水平: </label>
+                        <meter id="baselevel" name="level" max="100" min="0" low="59" high="90"></meter>
+                    </section>
+                    <!-- 入学(毕业)时间 -->
+                    <section>
+                        <label for="indate">入学时间: </label>
+                        <input type="date" name="indate" id="indate">
+                        <label for="leavedate">毕业时间: </label>
+                        <input type="date" name="leavedate" id="leavedate">
+                    </section>
+                    <!-- 提交 -->
+                    <input type="submit" id="submit">
+                    <input type="range">
                 </fieldset>
             </form>
         </article>
@@ -24,5 +63,9 @@
     </main>
     <footer></footer>
 </body>
-
+<script>
+    document.getElementById('score').oninput=function(){
+        document.getElementById('baselevel').value=this.value;
+    }
+</script>
 </html>
