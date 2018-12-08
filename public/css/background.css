@@ -1,0 +1,176 @@
+div[class^=bg]{
+    width:880px;
+    height:auto;
+}
+div[class^=bgs]{
+    width:100%;
+    height:300px;
+    background:#fff;
+    border:1px solid #ccc;
+    margin:15px auto;
+}
+div[class^=bgs]:nth-of-type(-n+6){
+    box-shadow:3px 3px 3px 0px #999;
+}
+div[class^=bgs]:nth-last-of-type(1){
+    box-shadow:3px 3px 3px 0px #888 inset,
+    -3px -3px 3px 0px #888 inset;
+}
+div[class^=bgs]:nth-of-type(1){
+    background-image:url("../../public/img/a.png");
+    background-size:cover;
+    background-position:center;
+}
+div[class^=bgs]:nth-child(2){
+    background-image:url("../../public/img/g.png");
+    background-size:880px 300px;
+    background-repeat:no-repeat;
+}
+/* round 将图片进行缩放之后再平铺 */
+div[class^=bgs]:nth-of-type(3){
+    background-image:url("../../public/img/h.png");
+    background-size:round;
+    background-repeat:no-repeat;
+}
+/* space:图片不会绽放平铺，只是会在图片之间产生相同的间距离 */
+div[class^=bgs]:nth-of-type(4){
+    height:399px;
+    background-image:url("../../public/img/timg\ \(1\).gif");
+    background-size:space;
+    /* background-repeat:no-repeat; */
+    /* background-position:center center; */
+}
+
+/* background-attachment:fixed;当滚动条滚动时背景图不滚动 */
+/* scroll：背景图片不会跟随内容滚动，
+    local：背景图片会跟随内容滚动 */
+div[class^=bgs]:nth-of-type(5){
+    height:200px;
+    overflow:scroll;
+    background-image:url("../../public/img/f.png");
+    /* background-size:cover; */
+    /* background-repeat:no-repeat; */
+    /* background-position:center center; */
+    background-attachment:local;
+}
+div[class^=bgs]:nth-of-type(6){
+    background-image:url("../../public/img/m.png");
+    background-size:cover;
+    background-position:top center;
+}
+/* 渐变 */
+div[class$=gradient]{
+    height:333px;
+    border:1px solid #ccc;
+    margin:15px auto;
+}
+div[class$=gradient]:first-child{
+    width:333px;
+    /* background:linear-gradient(to right,red,blue,#0f0); */
+    background:linear-gradient(45deg,#0f0f,red,#00f,rgb(209, 43, 24));
+    box-shadow:3px -3px 2px 1px #ccc inset,
+    -3px 0px 2px 1px #fff inset;
+}
+div[class$=gradient]:nth-child(2){
+    /* background:radial-gradient(ellipse at top, #0f0,#f0f); */
+    /* background:radial-gradient(ellipse at top right, #0f0,#f0f); */
+    /* background:radial-gradient(ellipse at 50px 30px, #0f0,#f0f); */
+    /* background:radial-gradient(ellipse closest-side, #0f0,#f0f); */
+    /* 参数顺序不能乱，定位默认排第三，size大小排第二，最后加颜色 */
+    /* closest-side：最近边 farthest-side：最远边 closest-corner：最近角 farthest-corner：最远角 */
+    /* background:radial-gradient(ellipse farthest-side at 50px 30px , #0f0,#f0f); */
+    /* background:radial-gradient(ellipse farthest-corner at 50px 30px , #0f0,#f0f); */
+    background:radial-gradient(ellipse closest-corner at 50px 30px , #0f0,#f0f);
+    box-shadow:3px -3px 2px 0px #Ddd;
+}
+/* 重复渐变 */
+div[class^=repeating]:nth-of-type(3){
+    background:repeating-linear-gradient(120deg,#fff 0%,#fff 10%,#000 10%,#000 20%);
+    box-shadow:0px -1px 0px 0px #ddd,
+    0px -2px 0px 0px #eee,
+    0px -3px 0px 0px #fff;  
+}
+div[class^=repeating]:nth-last-of-type(1){
+    width:333px;
+    /* background:repeating-radial-gradient(circle farthest-corner at center center,#0f0 10%,#f0f 20%); */
+    background:repeating-radial-gradient(circle farthest-corner at center center,#0f0 0%, #0f0 10%,#f0f 10%, #f0f 20%);
+    box-shadow:-1px -1px 0px 0px #ddd,
+    -1px -2px 0px 1px #eee,
+    -1px -3px 0px 2px #fff;
+}
+/* 精灵图片的使用 */
+/* background-origin 原点，这个原点默认在容器的左上角 */
+/* 设置坐标原点：
+border-box:从border的位置开始填充背景，会与border重叠
+padding-box：从padding的位置开始填充背景，会与padding重叠
+content-box：从content的位置开始填充背景，会与content重叠 */
+.jl a{
+    width:60px;
+    height:60px;
+    display:block;
+    background:#999;
+    padding:16px;
+    box-sizing: border-box;
+    background-image:url(../../public/img/toolbars.png);
+    background-origin:content-box;
+    background-position:4px 5px;
+    background-repeat:no-repeat;
+    /* 设置内容的裁切:设置的是裁切，控制的是显示
+    border-box:其实是显示border及以内的内容
+    padding-box:其实是显示padding及以内的内容
+    content-box:其实是显示content及以内的内容 */
+    background-clip:content-box;
+}
+.jl a:hover{
+    background-image:url(../../public/img/toolbars.png);
+    background-position:-51px -1px;
+}
+/* 边框图片的原理：一一对应 
+border-image-source:可以指定边框图片的路径，
+默认只是填充容器的四个角点*/
+.border{
+    width:300px;
+    height: 300px;
+    margin:15px auto;
+    /* padding:15px; */
+    /* border:27px solid #ccc; */
+    border:27px solid #f00;
+    /* border-image-source:url(../../public/img/jgg.jpg); */
+    /* 让它成为九宫格 border-image-slice 设置四个方向的裁切距离
+    fill ：做内容的内部填充*/
+    /* border-image-slice:27; */
+    /* border-image-slice:27 fill; */
+    /* 如果边框设置为1，则设置border-image-width:边框图片的宽度，
+    如果没有设置这个属性，那么宽度默认就是元素原始的边框宽度 */
+    /* 细节：1.边框图片的本质是背景，并不会影响元素内容的放，
+    2.内容只会被容器的border和padding影响
+    建设：一般将值设置为原始的边框宽度 */
+    /* border-image-width:27px; */
+    /* 边框扩展 border-image-outset 单位：px; 使用非常少，除非是单一的元素 */
+    /* border-image-repeat:round;
+    round:将内容绽放进行完整的重复平铺 
+    repeat: 直接重复平铺*/
+    /* 边框样式缩写
+    border-image:source slice / width / outset / repeat */
+    border-image:url(../../public/img/jgg.jpg) 27 / 27px / 0px round;    
+}
+.border-img{
+    width:800px;
+    color:#000 !important;
+    /* word-break: break-all; */
+    word-wrap: break-word;
+    text-align:justify;
+    border:10px solid red;
+    margin:15px auto;
+    /* border-image-source:url(../../public/img/border-img_03.png); */
+    /*设置受保护区域的大小 */
+    /* border-image-slice:10 fill; */
+    /* 设置边框图片的宽度：
+    1.明确圆角的大小，因为圆角的大小就是边框图片宽度的大小，
+    2.明确受保护的区域的大小; */
+    /* border-image-width:10px; */
+    /* 拉伸：设置背景平铺效果 默认是stretch: 拉伸 
+    round repeat 可以设置不同色调的重复*/
+    /* border-image-repeat:stretch; */
+    border-image:url(../../public/img/border-img_03.png) 10 fill / 10px / 0px stretch;
+}

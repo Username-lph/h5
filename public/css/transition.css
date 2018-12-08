@@ -1,0 +1,47 @@
+div[class=transition]{
+    position:relative;
+    width:900px;
+    height:600px;
+}
+.tran-first{
+    width:60px;
+    height:60px;
+    background-color:red;
+    position:absolute;
+    top:15px;
+    left:15px;
+    /* 添加过渡效果 ：1.过渡效果执行完毕之后，
+    默认会还原到原始状态
+    2.过渡效果只能产生从某个值到另外一个具体的值的过渡*/
+    /* transition-property 名称 */
+    transition-property:left;
+    /* 过渡消耗总时间 */
+    transition-duration:3s;
+    /* 设置时间函数--控制运动速度 transition-timing-function */
+    transition-timing-function:ease-in;
+    /* 延迟过渡几秒开始动 transition-delay */
+    transition-delay:2s;
+    
+    /* 为多个样式添加过渡效果 */
+    transition:left 3s ease-in 2s,background-color 5s ease-in-out 1s;
+    
+    /* 为所有样式添加过渡效果 all : 所有样式 
+    1.所有样式过渡效果一样，
+    2.效率低下，它会去查询所有添加的样式，
+    3.建议：以后不要这么写
+    4.steps (步长值) 分几次来完成*/
+    transition:all  2s steps(4);
+    -moz-animation: all 2s steps(4);
+    -webkit-transition:all 2s steps(4);
+    -o-transition:all 2s steps(4);
+}
+/* 单击 */
+.tran-first:active{
+    left:800px;
+    background-color:blue;
+} 
+/*速度太快 */
+/* 过渡 transition
+1.规定希望把效果添加到哪个css属性上，
+2.规定效果的时长*/
+/*  */
