@@ -1,0 +1,129 @@
+@import url(base.css);
+/* 使用transform实现任意居中 s */
+.box{
+    width: 200px;
+    height: 200px;
+    border-radius:200px;
+    background:#fff;
+    margin:15px auto;
+    position: relative;
+}
+.rec{
+    width: 100px;
+    height: 100px;
+    background:rgb(224, 9, 9);
+    border-radius:50%;
+    box-shadow:3px 3px 2px 0px #ccc;
+    position: absolute;
+    left:50%;
+    top:50%;
+    /* 使用transform实现元素的居中 ，百分比是参照元素本身的宽高 （也可以使用px）*/
+    transform:translate(-50%,-50%);
+    /* 设置旋转原点 */
+    transform-origin:left top;
+}
+/* 使用transform实现任意居中 e */
+.t3d{
+    width: 200px;
+    height: 200px;
+    background:red;
+    transition:transfrom 3s ease 0s;
+}
+.t3d:hover{
+    transform:rotate3d(1,1,0,300deg);
+}
+/* pk */
+.pk{
+    width: 243px;
+    height:363px;
+    position: relative;
+    margin:50px auto;
+}
+.pk1{
+    width:100%;
+    height:100%;
+    position: absolute;
+    /* 添加过渡效果 */
+    transition:transform 2s ease-in-out 0s;
+    /* 添加旋转轴 */
+    transform-origin:right top;
+}
+
+.pk:hover > .pk1:nth-of-type(1){
+    transform:rotate(60deg) scale(0.5);
+}
+.pk:hover > .pk1:nth-of-type(2){
+    transform:rotate(120deg) scale(0.5);
+}
+.pk:hover > .pk1:nth-of-type(3){
+    transform:rotate(180deg) scale(0.5);
+}
+.pk:hover > .pk1:nth-of-type(4){
+    transform:rotate(240deg) scale(0.5);
+}
+.pk:hover > .pk1:nth-of-type(5){
+    transform:rotate(300deg) scale(0.5);
+}
+.pk:hover > .pk1:nth-of-type(6){
+    transform:rotate(360deg) scale(0.5);
+}
+/* 立方体制作 */
+.cube{
+    width:200px;
+    height:200px;
+    position: relative;
+    margin:30px auto;
+    /* 设置transform-style 保持3D效果 */
+    transform-style:preserve-3d;
+    /* 设置3D效果，方便观看效果 */
+    /* transform:rotate3d(1,1,0,-30deg); */
+    /* 透视效果 */
+    perspective: 0px;
+    perspective-origin: 0px 0px;
+}
+/* transform-style 需要在父元素中设置 */
+.cube > div{
+    width: 100%;
+    height: 100%;
+    color:#fff;
+    font-size:50px;
+    position: absolute;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    transition:transform 2s ease-in-out 0s;
+    opacity:0.8;
+}
+.front{
+    background-color:red;
+    transform:translateZ(100px);
+}
+.back{
+    background-color:#0f0;
+    transform:translateZ(-100px) rotateY(180deg);
+}
+.left{
+    background-color:#00f;
+    transform:translateX(-100px) rotateY(-90deg);
+}
+.right{
+    background-color:hsla(30,100%,50%,0.88);
+    transform:translateX(100px) rotateY(90deg);
+}
+.top{
+    background-color:rgba(0,128,128,0.88);
+    transform:translateY(-100px) rotateX(90deg);
+}
+.bottom{
+    background-color:rgba(128,0,128,0.88);
+    transform:translateY(100px) rotateX(-90deg);
+}
+.cube:hover div{
+    transform:translateZ(100px);
+    transform:translateZ(-100px) rotateY(180deg);
+    transform:translateX(-100px) rotateY(-90deg);
+    transform:translateX(100px) rotateY(90deg);
+    transform:translateY(-100px) rotateX(90deg);
+    transform:translateY(100px) rotateX(-90deg);
+
+}

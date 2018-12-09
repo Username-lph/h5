@@ -98,6 +98,7 @@ div[class^=repeating]:nth-last-of-type(1){
     -1px -2px 0px 1px #eee,
     -1px -3px 0px 2px #fff;
 }
+
 /* 精灵图片的使用 */
 /* background-origin 原点，这个原点默认在容器的左上角 */
 /* 设置坐标原点：
@@ -142,7 +143,7 @@ border-image-source:可以指定边框图片的路径，
     /* border-image-slice:27 fill; */
     /* 如果边框设置为1，则设置border-image-width:边框图片的宽度，
     如果没有设置这个属性，那么宽度默认就是元素原始的边框宽度 */
-    /* 细节：1.边框图片的本质是背景，并不会影响元素内容的放，
+    /* 细节：1.边框图片的本质是背景，并不会影响元素内容的放置，
     2.内容只会被容器的border和padding影响
     建设：一般将值设置为原始的边框宽度 */
     /* border-image-width:27px; */
