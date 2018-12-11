@@ -4,9 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../public/css/transform3d.css">
+    <script src="../../public/js/html5shiv.min.js"></script>
+    <script src="../../public/js/jquery-1.11.3.min.js"></script>
     <title>transform3d</title>
 </head>
 <body>
-    
+    <div class="auto">
+        <header></header>
+        <nav></nav>
+        <main>
+            <article>
+                <!-- 时针制作 -->
+                <section id="clock">
+                    <div class="clock1"></div>
+                    <div class="clock">
+                        <div class="line line1"></div>
+                        <div class="line line2"></div>
+                        <div class="line line3"></div>
+                        <div class="line line4"></div>
+                        <div class="line line5"></div>
+                        <div class="line line6"></div>
+                        <div class="cover"></div>
+                        <div class="hours"></div>
+                        <div class="minutes"></div>
+                        <div class="seconds"></div>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="clock1"></div>
+                </section>
+                <!-- 进度条 -->
+                <section id="progress">
+                    <div class="progress"></div>
+                </section>
+                
+                <!-- 切割轮播图 -->
+                <section id="view">
+                    <div class="view">
+                        <ul>
+                            <!-- 第一个li就是一个结构块 -->
+                            <li>
+                                <!-- 每一个span是这个结构块中的某一个面
+                                    用来显示图片 -->
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </li>
+                        </ul>
+                        <div class="pre">
+                            <a href="#">&lt;</a>
+                        </div>
+                        <div class="next">
+                            <a href="#">&gt;</a>
+                        </div>
+                    </div>
+                </section>
+            </article>
+            <aside></aside>
+        </main>
+        <footer></footer>
+    </div>
 </body>
+<script>
+    $(function(){
+        // 定义图片索引
+        var index = 0;
+        // 添加截流 true说明本次单击会有响应处理
+        var flag = true;
+        // 下一张
+        $('.next').on('click',function(){
+            if(flag==true){
+                flag=false;
+                index--;
+                // 所谓下一张，就是将所有li元素围绕X旋转
+                $('li').each(function(key,value){
+                // key=0,1,2,3,4
+                // 添加transform 样式进行旋转
+                    $(this).css({
+                        'transform':'rotateX('+(index*90)+'deg)',
+                        'transition-delay':(key*0.2)+'s'
+                    });
+                });
+                setTimeout(function(){
+                    flag=true;
+                },1000);
+            }    
+        });
+        $('.pre').on('click',function(){
+            if(flag==true){
+                flag=false;
+                index++;
+                // 所谓上一张，就是将所有li元素围绕X旋转
+                $('li').each(function(key,value){
+                // key=0,1,2,3,4
+                // 添加transform 样式进行旋转
+                    $(this).css({
+                        'transform':'rotateX('+(index*90)+'deg)',
+                        'transition-delay':(key*0.2)+'s'
+                    });
+                });
+                setTimeout(function(){
+                    flag=true;
+                },1000);
+            }
+        });
+    });
+</script>
 </html>

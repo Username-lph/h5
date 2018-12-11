@@ -1,0 +1,297 @@
+@import url(base.css);
+a{
+    text-decoration:none;
+}
+#clock{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.clock{
+    width:300px;
+    height: 300px;
+    /* flex:1; */
+    border-radius:50%;
+    border:10px solid #ccc;
+    margin:15px 0;
+    position: relative;
+    box-sizing: border-box;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    
+}
+.clock1{
+    flex:1;
+}
+.clock > .line{
+    width:6px;
+    height:100%;
+    background:#ccc;
+    position:absolute;
+    left:50%; 
+    transform:translate(-50%,0);  
+}   
+/* 如果后期要使用transform值，必须要把先前设置的值复制下来使用，要不就会覆盖掉之前的transform值 */
+.clock > .line2{
+    transform:translate(-50%,0) rotate(30deg);
+}
+.clock > .line3{
+    transform:translate(-50%,0) rotate(60deg);
+}
+.clock > .line4{
+    transform:translate(-50%,0) rotate(90deg);
+}
+.clock > .line5{
+    transform:translate(-50%,0) rotate(120deg);
+}
+.clock > .line6{
+    transform:translate(-50%,0) rotate(150deg);
+}
+.clock > .line1,.clock > .line4{
+    width:8px;
+}
+.clock > .cover{
+    width:88%;
+    height:88%;
+    border-radius:50%;
+    background:#fff;
+    z-index:3;
+    position:absolute;
+}
+.clock > .hours{
+    width:8px;
+    height:88px;
+    background:#f00;
+    animation:clockAnimation 43200s linear infinite;
+}
+.clock > .minutes{
+    width:6px;
+    height:99px;
+    background:#444;
+    animation:clockAnimation 3600s linear infinite;
+}
+.clock > .seconds{
+    width:3px;
+    height:111px;
+    background:#0f0;
+    /* 添加动画 */
+    animation:clockAnimation 60s infinite steps(60);
+    /*  */
+    /* animation-timing-function: linear; 与 steps() 冲突，只能使用一个*/
+}
+.clock > .hours,.clock > .minutes,.clock > .seconds{
+    position:absolute;
+    z-index:6;
+    transform:translate(0,-50%);  
+   /* 设置旋转轴心 */
+    transform-origin:center bottom;
+}
+.clock > .circle{
+    width:10%;
+    height:10%;
+    border-radius:50%;
+    background:#ccc;
+    z-index:111;
+    position:absolute;
+}
+/* 创建动画 */
+@keyframes clockAnimation{
+    from{
+        transform:translate(0,-50%) rotate(0deg);
+    }
+    to{
+        transform:translate(0,-50%) rotate(360deg);
+    }
+}
+
+/* progress 进度条*/
+#progress{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+#progress > .progress{
+    flex:1;
+    height:26px;
+    margin:15px;
+    border-radius:5px;
+    box-shadow: 0px 3px 0px rgba(255,255,255,0.5) inset;
+    background:rgba(1,190,1,1);
+    /* 中间白色条大小 */
+    background-size:30px 30px;
+    /* 中间白色条线性渐变 */
+    /* background-image:-webkit-gradient(linear, left top, right bottom, 
+    color-stop(.25, rgba(255, 255, 255, .15)), 
+    color-stop(.25, transparent), 
+    color-stop(.5, transparent), 
+    color-stop(.5, rgba(255, 255, 255, .15)), 
+    color-stop(.75, rgba(255, 255, 255, .15)), 
+    color-stop(.75, transparent), to(transparent));*/
+    background-image:-webkit-linear-gradient(
+        /* linear,left top, right bottom, */
+        -45deg,
+        rgba(255,255,255,.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255,255,255,.2) 50%,
+        rgba(255,255,255,.2) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-image: -moz-linear-gradient(
+        -45deg, 
+        rgba(255, 255, 255, .2) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, .2) 50%, 
+        rgba(255, 255, 255, .2) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255,255,255,.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255,255,255,.2) 50%,
+        rgba(255,255,255,.2) 75%,
+        transparent 75%,
+        transparent
+    );
+    animation:progress 1s linear infinite;
+    -moz-animation:progress 1s linear infinite;
+    -webkit-animation:progress 1s linear infinite;
+    -o-animation:progress 1s linear infinite;
+    -ms-animation:progress 1s linear infinite;
+}
+@keyframes progress{
+    form{
+        background-position:0px 0px;
+    }
+    to{
+        background-position:30px 30px;
+    }
+}
+@-moz-keyframes progress{
+    form{
+        background-position:0px 0px;
+    }
+    to{
+        background-position:30px 30px;
+    }
+}
+@-ms-keyframes progress{
+    from{
+        background-position:0px 0px;
+    }
+    to{
+        background-position:30px 30px;
+    }
+}
+@-o-keyframes progress{
+    form{
+        background-position:0px 0px;
+    }
+    to{
+        background-position:30px 30px;
+    }
+}
+
+/* 切割轮播图 */
+#view{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+.view{
+    /* flex:1; */
+    width:600px;
+    height:300px;
+    margin:15px;
+    box-sizing:border-box;
+    display:flex;
+    justify-content: space-between;
+    position:relative;
+}
+.view > ul{
+    width:100%;
+    height:100%;
+    display:flex;
+    transform-style:preserve-3d;
+    /* transform:rotateX(-30deg) rotate(-55deg); */
+    transform:rotate3d(1,1,0,0deg);
+}
+/* li是用来做结构的，span是用来显示图片的 */
+.view > ul > li{
+    width:20%;
+    height:100%;
+    position:relative;
+    transform-style: preserve-3d;
+    transition:transform .5s;
+}
+.view > ul > li > span{
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    background-size:cover;
+}
+.view > ul > li > span:nth-of-type(1){
+    background-image:url(../../public/img/05.png);
+    /* background-size:cover;
+    background-position:center; */
+    /* 往z轴的正方向偏移150px */
+    transform:translateZ(150px);
+}
+.view > ul > li > span:nth-of-type(2){
+    background-image:url(../../public/img/02.png);
+    transform:translateY(-150px) rotateX(90deg);
+}
+.view > ul > li > span:nth-of-type(3){
+    background-image:url(../../public/img/03.png);
+    transform:translateZ(-150px) rotateX(180deg);
+    /* 要使让子元素保留3D效果，刚需给父元素添加保留3D样式 */
+}
+.view > ul > li > span:nth-of-type(4){
+    background-image:url(../../public/img/04.png);
+    transform:translateY(150px) rotateX(-90deg);
+}
+
+/* 设置每一个li元素的span所显示的位置 */
+.view > ul > li:nth-of-type(2) > span{
+    background-position:-100% 0;
+}
+.view > ul > li:nth-of-type(3) > span{
+    background-position:-200% 0;
+}
+.view > ul > li:nth-of-type(4) > span{
+    background-position:-300% 0;
+}
+.view > ul > li:nth-of-type(5) > span{
+    background-position:-400% 0;
+}
+/* 添加动画 */
+.view > .pre,.view > .next{
+    width:39px;
+    height: 39px;
+    text-align:center;
+    line-height:39px;
+    font-size:30px;
+    background:rgba(0,0,0, 0.5);
+    position:absolute;
+    align-self:center;
+    /* top:50%;
+    transform:translate(0,-50%); */
+}
+.view > .pre > a,.view > .next > a{
+    color:#fff;
+}
+.view > .pre{
+    
+}
+.view > .next{
+    right:0;
+}
